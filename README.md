@@ -1,2 +1,2 @@
 # GoBoard
-A scoreboard to keep track of the spades card game games.
+A scoreboard to keep track of the card game Spades.
