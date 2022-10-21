@@ -7,11 +7,42 @@ body {
     text-align: center;
 }
 
+p {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin: 5px;
+}
+
 #left-panel {
     background: #9a805e;
     height: 100%;
     left: 0;
+    padding: 15px;
     top: 0;
     width: 40%;
     z-index: 1;
+}
+
+#num-player-selection {
+    align-items: center;
+    width: 100%;
+}
+
+.button-selection {
+    border: 3px solid black;
+    border-radius: 25px;
+    display: inline-block;
+    height: 70px;
+    margin: 5px;
+    padding: 10px;
+    width: 120px;
+}
+
+.button-selection:hover {
+    background-color: rgb(245, 245, 245, 0.7);
+    transition: 0.5s;
 }
