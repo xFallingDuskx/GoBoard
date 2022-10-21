@@ -1,6 +1,12 @@
 # GoBoard
 A scoreboard to keep track of the spades card game games.
 
+## Sources
+- [Partner icons created by tuktukdesign - Flaticon](https://www.flaticon.com/free-icons/partner)
+- [Spades Glossary](https://www.thegameofspades.com/pages/spades-glossary-1)
+- [Rules of Spades](https://bicyclecards.com/how-to-play/spades/)
+
+
 ## Necessary Features:
 - [ ] Get game information: 
     - [ ] # of players (2 or 4)
