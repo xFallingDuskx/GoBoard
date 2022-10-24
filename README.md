@@ -9,7 +9,7 @@ A scoreboard to keep track of the spades card game games.
 
 ## Necessary Features:
 - [ ] Get game information: 
-    - [ ] # of players (2 or 4)
+    - [x] # of players (2 or 4)
     - [ ] Names of players on each team
     - [ ] # of bids for board - default set to 4, but allow options of 2 and 3 as well
     - [ ] How many points until end game (winning sum)
