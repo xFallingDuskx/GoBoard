@@ -8,16 +8,21 @@
             <br>
             <h2>How many players?</h2>
             <div id="num-player-selection">
-                <div class="button-selection" id="2-players" onclick="selected2()">
-                    <img src="images/partner.png" alt="two people" width="50">
-                    <p>2 players</p>
-                </div>
-                <div class="button-selection" id="4-players" onclick="selected4()">
+                <input type="radio" name="btn-selection-players" id="two-players" value="2"/>
+                    <label for="two-players">
+                        <img src="images/partner.png" alt="two people" width="50">
+                        <p>2 players</p>
+                    </label>
+                   
+                <input type="radio" name="btn-selection-players" id="four-players" value="4"/>
+                <label for="four-players">
                     <img src="images/partner.png" alt="two people" width="50">
                     <img src="images/partner.png" alt="two people" width="50">
                     <p>4 players</p>
-                </div>
+                </label>
             </div>
+            <br>
+            <button onclick="getGameInfo()">Let's Start</button>
         </div>
         <script src="index.js"></script>
     </body>

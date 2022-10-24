@@ -16,6 +16,7 @@ A scoreboard to keep track of the spades card game games.
         - [ ] Provide default winning sums of 200, 300, 400, and 500
         - [ ] Allow users to enter their winning sum by increasing/decreasing current score by 10 and 100 starting from 100
             - [ ] Prevent user from entering a score below 100
+    - [ ] Prevent user from continuing on without entering all info
 - [ ] Track team scores and bags in a table
 - [ ] Teams can select their bid prior to each round: # of books, nil bid, or blind nil
     - [ ] Set minimum (1) and maximum (13) bids for each team

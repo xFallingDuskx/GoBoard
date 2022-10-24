@@ -17,6 +17,30 @@ h2 {
     margin: 5px;
 }
 
+input[type='radio'] {
+    display:none;
+}
+
+input[type='radio'] + label:hover {
+    background-color: rgb(245, 245, 245, 0.7);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+input[type='radio'][name='btn-selection-players']:checked + label {
+    background-color: white;
+}
+
+label {
+    border: 3px solid black;
+    border-radius: 25px;
+    display: inline-block;
+    height: 70px;
+    margin: 5px;
+    padding: 10px;
+    width: 120px;
+  }
+
 #left-panel {
     background: #9a805e;
     height: 100%;
@@ -32,7 +56,13 @@ h2 {
     width: 100%;
 }
 
-.button-selection {
+/* #num-player-selection label:hover {
+    background-color: rgb(245, 245, 245, 0.7);
+    cursor: pointer;
+    transition: 0.5s;
+} */
+
+/* .btn-selection-players {
     border: 3px solid black;
     border-radius: 25px;
     display: inline-block;
@@ -42,7 +72,12 @@ h2 {
     width: 120px;
 }
 
-.button-selection:hover {
+.btn-selection-players:hover {
     background-color: rgb(245, 245, 245, 0.7);
     transition: 0.5s;
 }
+
+.btn-selected {
+    background: white;
+    pointer-events: none;
+} */

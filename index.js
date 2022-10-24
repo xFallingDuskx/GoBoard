@@ -1,20 +1,8 @@
-let fourPlayerElement = document.getElementById("4-players");
-let twoPlayerElement = document.getElementById("2-players");
+function getGameInfo() {
+    const numOfPlayersInput = document.querySelector(
+        'input[name="btn-selection-players"]:checked'
+    );
+    const numOfPlayers = numOfPlayersInput == null ? alert("missing # of players") : numOfPlayersInput.value;
 
-let numOfPlayers;
-
-function selected2() {
-    if (fourPlayerElement.style.background == "white") {
-        fourPlayerElement.style.background = "#9a805e";
-    }
-    twoPlayerElement.style.background = "white";
-    numOfPlayers = 2;
-}
-
-function selected4() {
-    if (twoPlayerElement.style.background == "white") {
-        twoPlayerElement.style.background = "#9a805e";
-    }
-    fourPlayerElement.style.background = "white";
-    numOfPlayers = 4;
+    console.log("Selected num of players is " + numOfPlayers);
 }
