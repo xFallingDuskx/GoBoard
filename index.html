@@ -5,7 +5,6 @@
     <body>
         <div id="left-panel">
             <h1>Welcome to GoBoard!</h1>
-            <br>
             <h2>How many players?</h2>
             <div id="num-player-selection">
                 <input type="radio" name="btn-selection-players" id="two-players" value="2"/>
@@ -13,7 +12,6 @@
                     <img src="images/partner.png" alt="two people" width="50">
                     <p>2 players</p>
                 </label>
-
                 <input type="radio" name="btn-selection-players" id="four-players" value="4"/>
                 <label for="four-players">
                     <img src="images/partner.png" alt="two people" width="50">
@@ -21,8 +19,29 @@
                     <p>4 players</p>
                 </label>
             </div>
+            <br>
+            <h2>Team Members</h2>
+            <p>
+                <i>For teams of 2, separate each name with space i.e. "Jeremiah Franchon"</i>
+            </p>
+            <div id="player-names-selection">
+                <label for="teams-of-one">Team 1:</label>
+                <input
+                    type="text"
+                    name="team-member-names"
+                    id="teams-of-one"
+                    placeholder="team one members"
+                    maxlength="30"/><br>
+                <label for="teams-of-two">Team 2:</label>
+                <input
+                    type="text"
+                    name="team-member-names"
+                    id="teams-of-two"
+                    placeholder="team two members"
+                    maxlength="30"/>
+            </div>
         </div>
-        <div id="btn-submit-info">
+        <div id="btn-submit-info" onclick="getGameInfo()">
             Submit
         </div>
         <script src="index.js"></script>
