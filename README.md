@@ -8,12 +8,12 @@ A scoreboard to keep track of the spades card game games.
 
 
 ## Necessary Features:
-- [ ] Get game information: 
+- [x] Get game information: 
     - [x] # of players (2 or 4)
     - [x] Names of players on each team
     - [x] # of bids for board - default set to 4, but allow options of 2 and 3 as well
     - [x] How many points until end game (winning score)
-    - [ ] Prevent user from continuing on without entering all info
+    - [x] Prevent user from continuing on without entering all info
 - [ ] Track team scores and bags in a table
 - [ ] Teams can select their bid prior to each round: # of books, nil bid, or blind nil
     - [ ] Set minimum (1) and maximum (13) bids for each team
@@ -26,7 +26,7 @@ A scoreboard to keep track of the spades card game games.
     - [ ] Users have the option to continue playing to a higher score
 
 ## Additional Features:
-- [ ] Offer explanation of rules of the game to users if they do not know
+- [x] Offer explanation of rules of the game and glossary to users if they do not know
 - [ ] Able to restart game at any point or at end of game - double confirmation here
 - [ ] Users are allowed to manually edit the scoreboard
 - [ ] Users are allowed to edit their names

@@ -38,7 +38,7 @@ input[type='radio'][name='btn-selection-players']:checked + label {
 input[type='range'] {
     cursor: pointer;
     width: 40%;
-    vertical-align:bottom;
+    vertical-align: bottom;
 }
 
 input[type='range'][name="num-bids"] {
@@ -65,6 +65,34 @@ input[type='range'][name="winning-score"] {
     background: whitesmoke;
     color: black;
     transition: 0.5s;
+}
+
+#game-details {
+    margin: auto;
+}
+
+#game-details a {
+    color: whitesmoke;
+    font-size: 1em;
+    position: relative;
+    text-decoration: none;
+    /* For underline effect - https://css-irl.info/animating-underlines/ */
+    background: linear-gradient(to right, #9a805e, #9a805e), linear-gradient(to right, #DEB887, #DEB887);
+    background-size: 100% 0.2em, 0 0.2em;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    padding-inline: 0.1em;
+    transition: color 400ms linear 100ms, background-size 400ms linear;
+}
+
+/* For underline effect */
+#game-details a:hover {
+    color: black;
+    background-size: 0 0.2em, 100% 0.2em;
+}
+
+#game-details p {
+    margin: 5px auto;
 }
 
 #left-panel {
