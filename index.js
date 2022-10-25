@@ -1,3 +1,6 @@
+let numBids = 4;
+let numBidsIndicator = document.getElementById("num-bids-indicator");
+
 function changeInputBackground(field) {
     if (field.value != "") {
         field.style.backgroundColor = "rgb(245, 245, 245, 0.7)";
@@ -28,6 +31,10 @@ function getGameInfo() {
     if ((teamOneMembersInput.length != numOfPlayers / 2) || (teamTwoMembersInput.length != numOfPlayers / 2)) {
         alert("# of team members do not match selected teams' size")
     }
+}
+
+function setNumBidsIndicator(input) {
+    numBidsIndicator.textContent = numBids = input.value;
 }
 
 function setInputBackground(field) {

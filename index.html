@@ -42,10 +42,22 @@
                     oninput="changeInputBackground(this)"
                     onchange="setInputBackground(this)"/>
             </div>
+            <br>
+            <h2># of Bids for Board</h2>
+            <div id="num-bids-board-selection">
+                <input
+                    type="range"
+                    name="num-bids"
+                    id="num-bids"
+                    min="2"
+                    max="4"
+                    value="4"
+                    step="1"
+                    oninput="setNumBidsIndicator(this)">
+                <div id="num-bids-indicator">4</div>
+            </div>
         </div>
-        <div id="btn-submit-info" onclick="getGameInfo()">
-            Submit
-        </div>
+        <div id="btn-submit-info" onclick="getGameInfo()">Submit</div>
         <script src="index.js"></script>
     </body>
 </html>
