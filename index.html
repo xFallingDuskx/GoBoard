@@ -30,15 +30,17 @@
                     type="text"
                     name="team-member-names"
                     id="teams-of-one"
-                    placeholder="team one members"
-                    maxlength="30"/><br>
+                    maxlength="30"
+                    oninput="changeInputBackground(this)"
+                    onchange="setInputBackground(this)"/><br>
                 <label for="teams-of-two">Team 2:</label>
                 <input
                     type="text"
                     name="team-member-names"
                     id="teams-of-two"
-                    placeholder="team two members"
-                    maxlength="30"/>
+                    maxlength="30"
+                    oninput="changeInputBackground(this)"
+                    onchange="setInputBackground(this)"/>
             </div>
         </div>
         <div id="btn-submit-info" onclick="getGameInfo()">

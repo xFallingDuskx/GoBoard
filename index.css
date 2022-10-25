@@ -79,6 +79,7 @@ input[type='radio'][name='btn-selection-players']:checked + label {
 }
 
 #player-names-selection label + input {
+    background: #9a805e;
     border: 3px solid black;
     border-radius: 10px;
     display: inline-block;

@@ -1,3 +1,12 @@
+function changeInputBackground(field) {
+    console.log("The value is " + field.value);
+    if (field.value != "") {
+        field.style.backgroundColor = "rgb(245, 245, 245, 0.7)";
+    } else {
+        field.style.backgroundColor = "#9a805e";
+    }
+}
+
 function getGameInfo() {
     const numOfPlayersInput = document.querySelector(
         'input[name="btn-selection-players"]:checked'
@@ -25,4 +34,13 @@ function getGameInfo() {
 
     console.log("For team one: " + teamOneMembersInput);
     console.log("For team two: " + teamTwoMembersInput);
+}
+
+function setInputBackground(field) {
+    console.log("The value is " + field.value);
+    if (field.value != "") {
+        field.style.backgroundColor = "white";
+    } else {
+        field.style.backgroundColor = "#9a805e";
+    }
 }
