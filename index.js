@@ -1,5 +1,7 @@
 let numBids = 4;
 let numBidsIndicator = document.getElementById("num-bids-indicator");
+let winningScore = 400;
+let winningScoreIndicator = document.getElementById("winning-score-indicator");
 
 function changeInputBackground(field) {
     if (field.value != "") {
@@ -13,9 +15,12 @@ function getGameInfo() {
     const numOfPlayersInput = document.querySelector(
         'input[name="btn-selection-players"]:checked'
     );
-    const numOfPlayers = numOfPlayersInput == null
-        ? alert("missing # of players")
-        : numOfPlayersInput.value;
+
+    if (numOfPlayersInput == null) {
+        alert("missing # of players");
+        return;
+    }
+    const numOfPlayers = numOfPlayersInput.value;
 
     const teamOneMembersInput = document
         .getElementById("teams-of-one")
@@ -29,12 +34,9 @@ function getGameInfo() {
         .split(" ");
 
     if ((teamOneMembersInput.length != numOfPlayers / 2) || (teamTwoMembersInput.length != numOfPlayers / 2)) {
-        alert("# of team members do not match selected teams' size")
+        alert("# of team members do not match selected teams' size");
+        return;
     }
-}
-
-function setNumBidsIndicator(input) {
-    numBidsIndicator.textContent = numBids = input.value;
 }
 
 function setInputBackground(field) {
@@ -42,5 +44,13 @@ function setInputBackground(field) {
         field.style.backgroundColor = "white";
     } else {
         field.style.backgroundColor = "#9a805e";
+    }
+}
+
+function setRangeIndicator(input, item) {
+    if (item == "bids") {
+        numBidsIndicator.textContent = numBids = input.value;
+    } else {
+        winningScoreIndicator.textContent = winningScore = input.value;
     }
 }

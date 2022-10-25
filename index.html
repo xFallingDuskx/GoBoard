@@ -19,7 +19,6 @@
                     <p>4 players</p>
                 </label>
             </div>
-            <br>
             <h2>Team Members</h2>
             <p>
                 <i>For teams of 2, separate each name with space i.e. "Jeremiah Franchon"</i>
@@ -42,9 +41,8 @@
                     oninput="changeInputBackground(this)"
                     onchange="setInputBackground(this)"/>
             </div>
-            <br>
             <h2># of Bids for Board</h2>
-            <div id="num-bids-board-selection">
+            <div class="range-selection">
                 <input
                     type="range"
                     name="num-bids"
@@ -53,8 +51,21 @@
                     max="4"
                     value="4"
                     step="1"
-                    oninput="setNumBidsIndicator(this)">
-                <div id="num-bids-indicator">4</div>
+                    oninput="setRangeIndicator(this, 'bids')">
+                <div class="range-value-indicator" id="num-bids-indicator">4</div>
+            </div>
+            <h2>Winning Score</h2>
+            <div class="range-selection">
+                <input
+                    type="range"
+                    name="winning-score"
+                    id="winning-score"
+                    min="200"
+                    max="800"
+                    value="400"
+                    step="100"
+                    oninput="setRangeIndicator(this, 'ws')">
+                <div class="range-value-indicator" id="winning-score-indicator">400</div>
             </div>
         </div>
         <div id="btn-submit-info" onclick="getGameInfo()">Submit</div>
