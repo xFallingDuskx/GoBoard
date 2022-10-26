@@ -4,85 +4,90 @@
     </head>
     <body>
         <div id="left-panel">
-            <h1>Welcome to GoBoard!</h1>
-            <h2>How many players?</h2>
-            <div id="num-player-selection">
-                <input type="radio" name="btn-selection-players" id="two-players" value="2"/>
-                <label for="two-players">
-                    <img src="images/partner.png" alt="two people" width="50">
-                    <p>2 players</p>
-                </label>
-                <input type="radio" name="btn-selection-players" id="four-players" value="4"/>
-                <label for="four-players">
-                    <img src="images/partner.png" alt="two people" width="50">
-                    <img src="images/partner.png" alt="two people" width="50">
-                    <p>4 players</p>
-                </label>
-            </div>
-            <h2>Team Members</h2>
-            <p>
-                <i>For teams of 2, separate each name with space i.e. "Jeremiah Franchon"</i>
-            </p>
-            <div id="player-names-selection">
-                <label for="teams-of-one">Team 1:</label>
-                <input
-                    type="text"
-                    name="team-member-names"
-                    id="teams-of-one"
-                    maxlength="30"
-                    oninput="changeInputBackground(this)"
-                    onchange="setInputBackground(this)"/><br>
-                <label for="teams-of-two">Team 2:</label>
-                <input
-                    type="text"
-                    name="team-member-names"
-                    id="teams-of-two"
-                    maxlength="30"
-                    oninput="changeInputBackground(this)"
-                    onchange="setInputBackground(this)"/>
-            </div>
-            <h2># of Bids for Board</h2>
-            <div class="range-selection">
-                <input
-                    type="range"
-                    name="num-bids"
-                    id="num-bids"
-                    min="2"
-                    max="4"
-                    value="4"
-                    step="1"
-                    oninput="setRangeIndicator(this, 'bids')">
-                <div class="range-value-indicator" id="num-bids-indicator">4</div>
-            </div>
-            <h2>Winning Score</h2>
-            <div class="range-selection">
-                <input
-                    type="range"
-                    name="winning-score"
-                    id="winning-score"
-                    min="200"
-                    max="800"
-                    value="400"
-                    step="100"
-                    oninput="setRangeIndicator(this, 'ws')">
-                <div class="range-value-indicator" id="winning-score-indicator">400</div>
-            </div>
-            <div id="game-details">
+            <div id="start-input">
+                <h1>Welcome to GoBoard!</h1>
+                <h2>How many players?</h2>
+                <div id="num-player-selection">
+                    <input type="radio" name="btn-selection-players" id="two-players" value="2"/>
+                    <label for="two-players">
+                        <img src="images/partner.png" alt="two people" width="50">
+                        <p>2 players</p>
+                    </label>
+                    <input type="radio" name="btn-selection-players" id="four-players" value="4"/>
+                    <label for="four-players">
+                        <img src="images/partner.png" alt="two people" width="50">
+                        <img src="images/partner.png" alt="two people" width="50">
+                        <p>4 players</p>
+                    </label>
+                </div>
+                <h2>Team Members</h2>
                 <p>
-                    <i>
-                        <a href="https://bicyclecards.com/how-to-play/spades/" target="_blank">Unsure of how to play Spades? You're not the only one. Click here</a>
-                    </i>
+                    <i>For teams of 2, separate each name with space i.e. "Jeremiah Franchon"</i>
                 </p>
-                <p>
-                    <i>
-                        <a
-                            href="https://www.thegameofspades.com/pages/spades-glossary-1"
-                            target="_blank">Know how to play but not sure about all of the savvy Spade terms? Click here</a>
-                    </i>
-                </p>
+                <div id="player-names-selection">
+                    <label for="teams-of-one">Team 1:</label>
+                    <input
+                        type="text"
+                        name="team-member-names"
+                        id="teams-of-one"
+                        maxlength="30"
+                        oninput="changeInputBackground(this)"
+                        onchange="setInputBackground(this)"/><br>
+                    <label for="teams-of-two">Team 2:</label>
+                    <input
+                        type="text"
+                        name="team-member-names"
+                        id="teams-of-two"
+                        maxlength="30"
+                        oninput="changeInputBackground(this)"
+                        onchange="setInputBackground(this)"/>
+                </div>
+                <h2># of Bids for Board</h2>
+                <div class="range-selection">
+                    <input
+                        type="range"
+                        name="num-bids"
+                        id="num-bids"
+                        min="2"
+                        max="4"
+                        value="4"
+                        step="1"
+                        oninput="setRangeIndicator(this, 'bids')">
+                    <div class="range-value-indicator" id="num-bids-indicator">4</div>
+                </div>
+                <h2>Winning Score</h2>
+                <div class="range-selection">
+                    <input
+                        type="range"
+                        name="winning-score"
+                        id="winning-score"
+                        min="200"
+                        max="800"
+                        value="400"
+                        step="100"
+                        oninput="setRangeIndicator(this, 'ws')">
+                    <div class="range-value-indicator" id="winning-score-indicator">400</div>
+                </div>
+                <div id="game-details">
+                    <p>
+                        <i>
+                            <a href="https://bicyclecards.com/how-to-play/spades/" target="_blank">Unsure of how to play Spades? You're not the only one. Click here</a>
+                        </i>
+                    </p>
+                    <p>
+                        <i>
+                            <a
+                                href="https://www.thegameofspades.com/pages/spades-glossary-1"
+                                target="_blank">Know how to play but not sure about all of the savvy Spade terms? Click here</a>
+                        </i>
+                    </p>
+                </div>
             </div>
+            <div id="btn-submit-info" onclick="getGameInfo()">Submit</div>
         </div>
-        <div id="btn-submit-info" onclick="getGameInfo()">Submit</div>
+        <div id="game-screen">
+            <!-- Add code for game content here -->
+        </div>
         <script src="index.js"></script>
     </body>
 </html>

@@ -26,6 +26,7 @@ A scoreboard to keep track of the spades card game games.
     - [ ] Users have the option to continue playing to a higher score
 
 ## Additional Features:
+- [ ] Make screen dynamic for different view sizes
 - [x] Offer explanation of rules of the game and glossary to users if they do not know
 - [ ] Able to restart game at any point or at end of game - double confirmation here
 - [ ] Users are allowed to manually edit the scoreboard
