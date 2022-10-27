@@ -28,9 +28,13 @@
         display: none;
         flex: 0;
     }
-    
+
     #main-panel {
         flex: 1;
+    }
+
+    #welcome-text {
+        padding: calc(10px + 1.5625vw);
     }
 }
 
@@ -63,7 +67,8 @@
     animation-delay: 100ms;
     animation-direction: normal;
     animation-duration: 1s;
-    animation-fill-mode: forwards; /* keeps the final position after the animation */
+    animation-fill-mode: forwards;
+    /* keeps the final position after the animation */
     animation-timing-function: ease-in-out;
     animation-name: slideup;
 }
@@ -72,7 +77,7 @@
     from {
         height: 100%;
     }
-  
+
     70% {
         height: 0;
     }
@@ -93,7 +98,8 @@ body {
     font-size: calc(16px + 0.390625vw);
     font-weight: bold;
     margin: 0;
-    overflow: hidden; /* Prevents scrolling from showing background */
+    overflow: hidden;
+    /* Prevents scrolling from showing background */
     text-align: center;
 }
 
@@ -213,6 +219,13 @@ input[type='range'][name="winning-score"] {
     padding: 5px;
     margin: 5px auto;
     width: 50%;
+}
+
+#welcome-text {
+    align-self: center;
+    top: 45%;
+    position: absolute;
+    white-space: pre-line;
 }
 
 .range-selection {
