@@ -27,7 +27,9 @@ A scoreboard to keep track of the spades card game games.
 
 ## Additional Features:
 - [ ] Make screen dynamic for different view sizes
+    - [ ] Prevent users from using site on phones and tablets in landscape mode
 - [x] Offer explanation of rules of the game and glossary to users if they do not know
+- [ ] Panel is animated out of the user's view
 - [ ] Able to restart game at any point or at end of game - double confirmation here
 - [ ] Users are allowed to manually edit the scoreboard
 - [ ] Users are allowed to edit their names

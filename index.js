@@ -1,6 +1,9 @@
 let numBids = 4;
-let numBidsIndicator = document.getElementById("num-bids-indicator");
 let winningScore = 400;
+
+let gameScreenEl = document.getElementById("game-screen");
+let numBidsIndicator = document.getElementById("num-bids-indicator");
+let mainPanelEl = document.getElementById("main-panel");
 let winningScoreIndicator = document.getElementById("winning-score-indicator");
 
 function changeInputBackground(field) {
@@ -11,7 +14,19 @@ function changeInputBackground(field) {
     }
 }
 
+function closePanel() {
+    if (window.innerWidth <= 576) {
+        mainPanelEl.classList.add("slide-up");
+        mainPanelEl.addEventListener("animationend", switchToGameScreen(), false);
+    }
+    return;
+}
+
 function getGameInfo() {
+    closePanel();
+    return;
+
+
     const numOfPlayersInput = document.querySelector(
         'input[name="btn-selection-players"]:checked'
     );
@@ -53,4 +68,15 @@ function setRangeIndicator(input, item) {
     } else {
         winningScoreIndicator.textContent = winningScore = input.value;
     }
+}
+
+function switchToGameScreen() {
+    if (window.innerWidth <= 576) {
+        setTimeout(() => {
+            mainPanelEl.style.display = "none";
+            gameScreenEl.style.display = "flex";
+            gameScreenEl.style.flex = "1";
+        }, 1500);
+    }
+    return;
 }
