@@ -20,7 +20,7 @@ function changeInputBackground(field) {
 }
 
 function closePanel() {
-    if (window.innerWidth <= 576) {
+    if (window.innerWidth <= 480) {
         mainPanelEl
             .classList
             .add("slide-up");
@@ -81,7 +81,7 @@ function setRangeIndicator(input, item) {
 }
 
 function switchToGameScreen() {
-    if (window.innerWidth <= 576) {
+    if (window.innerWidth <= 480) {
         setTimeout(() => {
             mainPanelEl.style.display = "none";
             gameScreenEl.style.display = "flex";

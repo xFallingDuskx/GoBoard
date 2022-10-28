@@ -1,5 +1,6 @@
-/* MEDIA QUERIES FOR DIFFERENT SCREEN SIZES */
-@media screen and (max-width: 576px) {
+/* --- MEDIA QUERIES --- */
+/* Phones */
+@media screen and (max-width: 480px) {
     h1 {
         font-size: 1.5rem;
     }
@@ -38,27 +39,10 @@
     }
 }
 
-@media screen and (min-width: 576px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-}
-
-@media screen and (min-width: 992px) {
+/* Laptops and Desktops */
+@media screen and (min-width: 1025px) {
     h1 {
         font-size: 3em;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    h1 {
-        font-size: 4em;
     }
 }
 
@@ -89,7 +73,6 @@
 }
 
 /* --- NORMAL CSS --- */
-
 body {
     background-color: #DEB887;
     display: flex;
