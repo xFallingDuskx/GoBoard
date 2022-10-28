@@ -27,7 +27,7 @@ A scoreboard to keep track of the spades card game games.
 
 ## Additional Features:
 - [ ] Make responsive to phone (portrait) and desktop
-    - [ ] Prevent users from visiting app if neither is true
+    - [x] Prevent users from visiting app if neither is true
 - [x] Offer explanation of rules of the game and glossary to users if they do not know
 - [ ] Panel is animated out of the user's view
 - [ ] Able to restart game at any point or at end of game - double confirmation here

@@ -1,9 +1,11 @@
+// VARIABLES
 let numBids = 4;
 let winningScore = 400;
 
 let gameScreenEl = document.getElementById("game-screen");
-let numBidsIndicator = document.getElementById("num-bids-indicator");
 let mainPanelEl = document.getElementById("main-panel");
+let numBidsIndicator = document.getElementById("num-bids-indicator");
+let overlayEl = document.getElementById("overlay");
 let welcomeTextEl = document.getElementById("welcome-text");
 let winningScoreIndicator = document.getElementById("winning-score-indicator");
 
@@ -11,6 +13,11 @@ const welcomeTextOne = "Seems like you're all set to get started! Best of luck t
 const welcomeTextTwo = "Oh and do try not to renege. No one likes that person " +
         String.fromCodePoint(0x1F608) + " except the other team, I mean.";
 
+// EVENT LISTENERS
+window.addEventListener("load", dialogTrigger);
+window.addEventListener("resize", dialogTrigger);
+
+// FUNCTIONS
 function changeInputBackground(field) {
     if (field.value != "") {
         field.style.backgroundColor = "rgb(245, 245, 245, 0.7)";
@@ -27,6 +34,17 @@ function closePanel() {
         mainPanelEl.addEventListener("animationend", switchToGameScreen(), false);
     }
     return;
+}
+
+function dialogTrigger() {
+    const passes = (
+        window.matchMedia("(orientation: portrait)").matches && window.innerWidth <= 480
+    ) || window.innerWidth >= 1025;
+    if (!passes) {
+        overlayEl.style.display = "flex";
+    } else {
+        overlayEl.style.display = "none";
+    }
 }
 
 function getGameInfo() {
