@@ -25,6 +25,10 @@
         margin: calc(10px + 1.5625vw);
     }
 
+    #game-details br {
+        display: none;
+    }
+
     #game-screen {
         display: none;
         flex: 0;
@@ -39,20 +43,79 @@
     }
 }
 
-/* Laptops and Desktops */
+/* Larger screen (large tablets, laptops and desktops) */
 @media screen and (min-width: 1025px) {
     h1 {
-        font-size: 3em;
+        font-size: 2rem;
+        margin-top: calc(5px + 1.5625vw);
+        margin-bottom: calc(1px + 1.5625vw);
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        margin-top: calc(8px + 1vw);
+        margin-bottom: calc(1px + 1vw);
+    }
+
+    p {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    #btn-submit-info {
+        font-size: 2rem;
+        padding: calc(1px + 0.8vw);
+    }
+
+    #game-details {
+        margin: calc(8px + 1.5625vw);
+    }
+
+    #game-screen {
+        flex: 2.5;
+    }
+
+    #main-panel {
+        flex: 1;
+    }
+
+    #welcome-text {
+        padding: calc(10px + 1.5625vw);
+        width: 100%;
     }
 }
 
 /* ANIMATIONS AND PROPERTIES (https://developer.mozilla.org/en-US/docs/Web/CSS/animation) */
+.slide-left {
+    animation-delay: 100ms;
+    animation-direction: normal;
+    animation-duration: 1s;
+    /* keeps the final position after the animation */
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-name: slideleft;
+}
+
+@keyframes slideleft {
+    from {
+        flex: 1;
+    }
+
+    70% {
+        flex: 0;
+    }
+
+    100% {
+        flex: 0;
+        overflow: hidden;
+    }
+}
+
 .slide-up {
     animation-delay: 100ms;
     animation-direction: normal;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    /* keeps the final position after the animation */
     animation-timing-function: ease-in-out;
     animation-name: slideup;
 }
@@ -73,15 +136,19 @@
 }
 
 /* --- NORMAL CSS --- */
+html {
+    font-size: calc(10px + 0.390625vw);
+}
+
 body {
     background-color: #DEB887;
     display: flex;
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: calc(16px + 0.390625vw);
     font-weight: bold;
     margin: 0;
-    overflow: hidden; /* Prevents scrolling from showing background */
+    /* Prevents scrolling from showing background */
+    overflow: hidden;
     text-align: center;
 }
 
@@ -125,10 +192,14 @@ input[type='range'][name="winning-score"] {
 }
 
 #btn-submit-info {
+    align-content: center;
+    display: flex;
     background: black;
     color: white;
     cursor: pointer;
-    text-align: center;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #btn-submit-info:hover {
@@ -173,6 +244,8 @@ input[type='range'][name="winning-score"] {
 }
 
 #main-panel {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     margin: 0;
     z-index: 1;
@@ -180,7 +253,7 @@ input[type='range'][name="winning-score"] {
 
 #start-input {
     background: #9a805e;
-    height: 90%;
+    flex: 19;
     overflow-y: scroll;
     padding: calc(4px + 1.5625vw);
 }

@@ -11,7 +11,7 @@ let winningScoreIndicator = document.getElementById("winning-score-indicator");
 
 const welcomeTextOne = "Seems like you're all set to get started! Best of luck to both teams!";
 const welcomeTextTwo = "Oh and do try not to renege. No one likes that person " +
-        String.fromCodePoint(0x1F608) + " except the other team, I mean.";
+        String.fromCodePoint(0x1F608) + " except the other team, of course.";
 
 // EVENT LISTENERS
 window.addEventListener("load", dialogTrigger);
@@ -27,19 +27,27 @@ function changeInputBackground(field) {
 }
 
 function closePanel() {
+    let effect;
     if (window.innerWidth <= 480) {
-        mainPanelEl
-            .classList
-            .add("slide-up");
-        mainPanelEl.addEventListener("animationend", switchToGameScreen(), false);
+        effect = "slide-up";
+    } else {
+        effect = "slide-left";
     }
+
+    mainPanelEl
+        .classList
+        .add(effect);
+    mainPanelEl.addEventListener("animationend", switchToGameScreen(), false);
+
     return;
 }
 
 function dialogTrigger() {
     const passes = (
         window.matchMedia("(orientation: portrait)").matches && window.innerWidth <= 480
-    ) || window.innerWidth >= 1025;
+    ) || (
+        window.matchMedia("(orientation: landscape)").matches && window.innerWidth >= 1025
+    );
     if (!passes) {
         overlayEl.style.display = "flex";
     } else {
@@ -48,10 +56,6 @@ function dialogTrigger() {
 }
 
 function getGameInfo() {
-    // TODO - Remove, for testing
-    closePanel();
-    return;
-
     const numOfPlayersInput = document.querySelector(
         'input[name="btn-selection-players"]:checked'
     );
@@ -99,21 +103,18 @@ function setRangeIndicator(input, item) {
 }
 
 function switchToGameScreen() {
-    if (window.innerWidth <= 480) {
-        setTimeout(() => {
-            mainPanelEl.style.display = "none";
-            gameScreenEl.style.display = "flex";
-            gameScreenEl.style.flex = "1";
-            welcomeUsers(1);
-        }, 1500);
-    }
+    setTimeout(() => {
+        mainPanelEl.style.display = "none";
+        gameScreenEl.style.display = "flex";
+        gameScreenEl.style.flex = "1";
+        welcomeUsers(1);
+    }, 1500);
 
     return;
 }
 
 let idx1 = 0
 let idx2 = 0;
-
 function welcomeUsers(num) {
     if (num == 1) {
         welcomeTextEl.textContent += welcomeTextOne.charAt(idx1);

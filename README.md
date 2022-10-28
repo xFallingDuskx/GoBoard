@@ -29,7 +29,7 @@ A scoreboard to keep track of the spades card game games.
 - [ ] Make responsive to phone (portrait) and desktop
     - [x] Prevent users from visiting app if neither is true
 - [x] Offer explanation of rules of the game and glossary to users if they do not know
-- [ ] Panel is animated out of the user's view
+- [x] Panel is animated out of the user's view
 - [ ] Able to restart game at any point or at end of game - double confirmation here
 - [ ] Users are allowed to manually edit the scoreboard
 - [ ] Users are allowed to edit their names
