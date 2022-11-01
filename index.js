@@ -1,4 +1,7 @@
 // VARIABLES
+let numPlayers,
+    teamOneMembersInput,
+    teamTwoMembersInput;
 let numBids = 4;
 let winningScore = 400;
 
@@ -6,6 +9,8 @@ let gameScreenEl = document.getElementById("game-screen");
 let mainPanelEl = document.getElementById("main-panel");
 let numBidsIndicator = document.getElementById("num-bids-indicator");
 let overlayEl = document.getElementById("overlay");
+let scoreboardEl = document.getElementById("scoreboard");
+let scoreboardContainerEl = document.getElementById("scoreboard-container");
 let welcomeTextEl = document.getElementById("welcome-text");
 let winningScoreIndicator = document.getElementById("winning-score-indicator");
 
@@ -42,6 +47,19 @@ function closePanel() {
     return;
 }
 
+function createScoreboard() {
+    welcomeTextEl.style.display = "none";
+    scoreboardContainerEl.style.display = "block";
+
+    console.log(teamOneMembersInput.join(" & "));
+    console.log(teamTwoMembersInput.join(" & "));
+
+    scoreboardEl.innerHTML += (
+        "<tr><th>Round</th><th>" + teamOneMembersInput.join(" & ") + "</th><th>" +
+            teamTwoMembersInput.join(" & ") + "</th><th>Bags</th></tr>"
+    );
+}
+
 function dialogTrigger() {
     const passes = (
         window.matchMedia("(orientation: portrait)").matches && window.innerWidth <= 480
@@ -56,34 +74,42 @@ function dialogTrigger() {
 }
 
 function getGameInfo() {
-    const numOfPlayersInput = document.querySelector(
+    const numPlayersInput = document.querySelector(
         'input[name="btn-selection-players"]:checked'
     );
 
-    if (numOfPlayersInput == null) {
+    if (numPlayersInput == null) {
         alert("missing # of players");
         return;
     }
-    const numOfPlayers = numOfPlayersInput.value;
 
-    const teamOneMembersInput = document
+    numPlayers = numPlayersInput.value;
+
+    teamOneMembersInput = document
         .getElementById("teams-of-one")
         .value
         .trim()
         .split(" ");
-    const teamTwoMembersInput = document
+    teamTwoMembersInput = document
         .getElementById("teams-of-two")
         .value
         .trim()
         .split(" ");
 
-    if ((teamOneMembersInput.length != numOfPlayers / 2) || (teamTwoMembersInput.length != numOfPlayers / 2)) {
+    if ((teamOneMembersInput.length != numPlayers / 2) || (teamTwoMembersInput.length != numPlayers / 2)) {
         alert("# of team members do not match selected teams' size");
         return;
     }
 
     closePanel();
     return;
+}
+
+function record() {
+    // TODO
+    // scoreboardEl.innerHTML += (
+    //     "<tr><td>" + round + "</td><td>" + teamOneScore + "</td><td>" + teamTwoScore + "</td><td>" + bags + "</td></tr>"
+    // );
 }
 
 function setInputBackground(field) {
@@ -128,6 +154,7 @@ function welcomeUsers(num) {
         welcomeTextEl.textContent += welcomeTextTwo.charAt(idx2);
         idx2++;
         if (idx2 == welcomeTextTwo.length) {
+            setTimeout(createScoreboard, 4000);
             return
         }
         setTimeout(welcomeUsers, 50, num);

@@ -38,6 +38,10 @@
         flex: 1;
     }
 
+    #scoreboard-container {
+        width: 80%;
+    }
+
     #welcome-text {
         padding: calc(10px + 1.5625vw);
     }
@@ -77,6 +81,10 @@
 
     #main-panel {
         flex: 1;
+    }
+
+    #scoreboard-container {
+        width: 50%;
     }
 
     #welcome-text {
@@ -180,6 +188,21 @@ input[type='range'][name="winning-score"] {
     width: 60%;
 }
 
+table {
+    border: none;
+    border-collapse: collapse;
+    color: black;
+    margin-inline: auto;
+    text-align: center;
+    width: 100%;
+}
+
+td,
+th {
+    padding: 5px;
+    width: 25%;
+}
+
 #alert-dialog {
     background: #9a805e;
     border: 5px solid black;
@@ -238,9 +261,19 @@ input[type='range'][name="winning-score"] {
 }
 
 #game-screen {
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     z-index: 1;
+}
+
+#scoreboard th {
+    border-bottom: 3px solid black;
+}
+
+#scoreboard-container {
+    align-self: center;
+    display: none;
 }
 
 #main-panel {
