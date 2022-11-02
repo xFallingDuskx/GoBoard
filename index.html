@@ -110,6 +110,29 @@
                 <table id="scoreboard">
                 </table>
             </div>
+            <div id="game-round-dialog">
+                <p>Alright, let's enter the bids for round <span id="game-round-dialog-round-num"></span></p>
+                <p id="game-round-dialog-error-text"></p>
+                <label for="bids-team-one">Team 1 Bid:</label>
+                <input
+                    type="number"
+                    name="bids-team-one"
+                    id="bids-team-one"
+                    maxlength="2"
+                    min="0"
+                    max="13"
+                    oninput="validateBidEntry(this)"/><br>
+                <label for="bids-team-two">Team 2 Bid:</label>
+                <input
+                    type="number"
+                    name="bids-team-one"
+                    id="bids-team-one"
+                    maxlength="2"
+                    min="0"
+                    max="13"
+                    oninput="validateBidEntry(this)"/>
+                <button id="btn-submit-round-info">We're All Set</button>
+            </div>
         </div>
 
         <script src="index.js"></script>

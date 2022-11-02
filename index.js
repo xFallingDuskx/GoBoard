@@ -1,10 +1,17 @@
 // VARIABLES
 let numPlayers,
     teamOneMembersInput,
-    teamTwoMembersInput;
-let numBids = 4;
+    teamTwoMembersInput,
+    teamOneNumBags,
+    teamTwoNumBags;
+let round = 1;
+    let numBids = 4;
 let winningScore = 400;
 
+let gameRoundDialogEl = document.getElementById("game-round-dialog");
+let gameRoundDialogButtonEl = document.getElementById("btn-submit-round-info");
+let gameRoundDialogErrorText = document.getElementById("game-round-dialog-error-text");
+let gameRoundDialogRoundNum = document.getElementById("game-round-dialog-round-num");
 let gameScreenEl = document.getElementById("game-screen");
 let mainPanelEl = document.getElementById("main-panel");
 let numBidsIndicator = document.getElementById("num-bids-indicator");
@@ -56,8 +63,10 @@ function createScoreboard() {
 
     scoreboardEl.innerHTML += (
         "<tr><th>Round</th><th>" + teamOneMembersInput.join(" & ") + "</th><th>" +
-            teamTwoMembersInput.join(" & ") + "</th><th>Bags</th></tr>"
+            teamTwoMembersInput.join(" & ") + "</th><th>Bags<br>(T1 - T2)</th></tr>"
     );
+
+    setTimeout(displayRoundDialog(), 1000);
 }
 
 function dialogTrigger() {
@@ -71,6 +80,11 @@ function dialogTrigger() {
     } else {
         overlayEl.style.display = "none";
     }
+}
+
+function displayRoundDialog() {
+    gameRoundDialogRoundNum.textContent = round;
+    gameRoundDialogEl.style.display = "block";
 }
 
 function getGameInfo() {
@@ -154,9 +168,26 @@ function welcomeUsers(num) {
         welcomeTextEl.textContent += welcomeTextTwo.charAt(idx2);
         idx2++;
         if (idx2 == welcomeTextTwo.length) {
-            setTimeout(createScoreboard, 4000);
+            setTimeout(createScoreboard, 3000);
             return
         }
         setTimeout(welcomeUsers, 50, num);
+    }
+}
+
+function validateBidEntry(entry) {
+    const bid = entry.value;
+    if (isNaN(bid)) {
+        gameRoundDialogErrorText.textContent = "Must enter a number";
+        gameRoundDialogButtonEl.disabled = true;
+    } else if (bid < 0) {
+        gameRoundDialogErrorText.textContent = "Cannot enter a bid below 0";
+        gameRoundDialogButtonEl.disabled = true;
+    } else if (bid > 13) {
+        gameRoundDialogErrorText.textContent = "Cannot enter a bid above 13";
+        gameRoundDialogButtonEl.disabled = true;
+    } else {
+        gameRoundDialogErrorText.textContent = "";
+        gameRoundDialogButtonEl.disabled = false;
     }
 }

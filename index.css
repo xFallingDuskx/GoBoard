@@ -38,6 +38,23 @@
         flex: 1;
     }
 
+    #game-round-dialog {
+        padding: calc(6px + 1.5625vw);
+        width: 60%;
+    }
+
+    #game-round-dialog button {
+        margin: calc(10px + 1.5625vw) auto;
+    }
+
+    #game-round-dialog label + input {
+        margin: calc(6px + 1.5625vw);
+    }
+
+    #game-round-dialog p + p {
+        margin-bottom: calc(6px + 1.5625vw);
+    }
+
     #scoreboard-container {
         width: 80%;
     }
@@ -81,6 +98,23 @@
 
     #main-panel {
         flex: 1;
+    }
+
+    #game-round-dialog {
+        padding: calc(2px + 1.5625vw);
+        width: 30%;
+    }
+
+    #game-round-dialog button {
+        margin: calc(1px + 0.8vw) auto;
+    }
+
+    #game-round-dialog label + input {
+        margin-bottom: calc(1px + 0.8vw);
+    }
+
+    #game-round-dialog p + p {
+        margin-bottom: calc(6px + 1.5625vw);
     }
 
     #scoreboard-container {
@@ -203,6 +237,11 @@ th {
     width: 25%;
 }
 
+th {
+    border-bottom: 3px solid black;
+    text-align: center;
+}
+
 #alert-dialog {
     background: #9a805e;
     border: 5px solid black;
@@ -267,10 +306,6 @@ th {
     z-index: 1;
 }
 
-#scoreboard th {
-    border-bottom: 3px solid black;
-}
-
 #scoreboard-container {
     align-self: center;
     display: none;
@@ -331,6 +366,52 @@ th {
     padding: 5px;
     margin: 5px auto;
     width: 50%;
+}
+
+#game-round-dialog {
+    align-self: center;
+    background: #9a805e;
+    border: 5px solid black;
+    border-radius: 25px;
+    color: whitesmoke;
+    display: none;
+    height: fit-content;
+    justify-self: center;
+    z-index: 4;
+}
+
+#game-round-dialog button {
+    background: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    color: black;
+    display: block;
+}
+
+#game-round-dialog button:active,
+#game-round-dialog button:hover {
+    background: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: whitesmoke;
+    transition-duration: 500ms;
+}
+
+#game-round-dialog button:disabled,
+#game-round-dialog button:disabled:active {
+    background: grey;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: whitesmoke;
+    transition-duration: 500ms;
+}
+
+#game-round-dialog button:disabled:hover {
+    cursor: not-allowed;
+}
+
+#game-round-dialog-error-text {
+    color: rgba(209, 0, 0, 0.886);
 }
 
 #welcome-text {
