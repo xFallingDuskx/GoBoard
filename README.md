@@ -1,5 +1,5 @@
 # GoBoard
-A scoreboard to keep track of the spades card game games.
+A scoreboard to keep track of the spades card game games. Access it [here](https://xfallingduskx.github.io/GoBoard/).
 
 ## Sources
 - [Partner icons created by tuktukdesign - Flaticon](https://www.flaticon.com/free-icons/partner)
