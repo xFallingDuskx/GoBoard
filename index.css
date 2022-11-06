@@ -167,15 +167,11 @@
 @keyframes slideleft {
     from {
         flex: 1;
+        transform: translateX(0);
     }
 
-    70% {
-        flex: 0;
-    }
-
-    100% {
-        flex: 0;
-        overflow: hidden;
+    to {
+        transform: translateX(-100%);
     }
 }
 
