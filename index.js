@@ -1,14 +1,17 @@
 // VARIABLES
 let numPlayers,
+    teamOneBidEntry,
+    teamTwoBidEntry,
     teamOneMembersInput,
     teamTwoMembersInput,
     teamOneNumBags,
     teamTwoNumBags;
 let round = 1;
-    let numBids = 4;
+let numBids = 4;
 let winningScore = 400;
 
 let gameRoundDialogEl = document.getElementById("game-round-dialog");
+let gameRoundDialogBackground = document.getElementById("game-round-dialog-background");
 let gameRoundDialogButtonEl = document.getElementById("btn-submit-round-info");
 let gameRoundDialogErrorText = document.getElementById("game-round-dialog-error-text");
 let gameRoundDialogRoundNum = document.getElementById("game-round-dialog-round-num");
@@ -50,8 +53,11 @@ function closePanel() {
         .classList
         .add(effect);
     mainPanelEl.addEventListener("animationend", switchToGameScreen(), false);
+}
 
-    return;
+function closeRoundDialog() {
+    gameRoundDialogBackground.style.display = "none";
+    gameRoundDialogEl.style.display = "none";
 }
 
 function createScoreboard() {
@@ -84,7 +90,9 @@ function dialogTrigger() {
 
 function displayRoundDialog() {
     gameRoundDialogRoundNum.textContent = round;
+    gameRoundDialogBackground.style.display = "flex";
     gameRoundDialogEl.style.display = "block";
+    gameRoundDialogButtonEl.disabled = true;
 }
 
 function getGameInfo() {
@@ -116,14 +124,37 @@ function getGameInfo() {
     }
 
     closePanel();
-    return;
+}
+
+function processRoundInput() {
+    const teamOneBidInput = document.querySelector('input[name="bids-team-one"]');
+    const teamTwoBidInput = document.querySelector('input[name="bids-team-two"]');
+
+    teamOneBidEntry = teamOneBidInput.value;
+    teamTwoBidEntry = teamTwoBidInput.value;
+
+    if (!validateBidEntry(teamOneBidInput)) {
+        shakeButton();
+        return;
+    }
+    if (!validateBidEntry(teamTwoBidInput)) {
+        shakeButton();
+        return;
+    }
+
+    closeRoundDialog();
 }
 
 function record() {
-    // TODO
-    // scoreboardEl.innerHTML += (
-    //     "<tr><td>" + round + "</td><td>" + teamOneScore + "</td><td>" + teamTwoScore + "</td><td>" + bags + "</td></tr>"
+    // TODO scoreboardEl.innerHTML += (     "<tr><td>" + round + "</td><td>" +
+    // teamOneScore + "</td><td>" + teamTwoScore + "</td><td>" + bags + "</td></tr>"
     // );
+}
+
+function shakeButton() {
+    gameRoundDialogButtonEl
+        .classList
+        .add("shake");
 }
 
 function setInputBackground(field) {
@@ -149,8 +180,6 @@ function switchToGameScreen() {
         gameScreenEl.style.flex = "1";
         welcomeUsers(1);
     }, 1500);
-
-    return;
 }
 
 let idx1 = 0
@@ -175,13 +204,18 @@ function welcomeUsers(num) {
     }
 }
 
+// Returns true if the bid entry is valid
 function validateBidEntry(entry) {
     const bid = entry.value;
-    if (isNaN(bid)) {
-        gameRoundDialogErrorText.textContent = "Must enter a number";
+    if (bid === "n" || bid === "b") {
+        gameRoundDialogErrorText.textContent = "";
+        gameRoundDialogButtonEl.disabled = false;
+    } else if (!/^[0-9]+$/.test(bid)) {
+        gameRoundDialogErrorText.textContent = "Must enter a number for each bid";
         gameRoundDialogButtonEl.disabled = true;
-    } else if (bid < 0) {
-        gameRoundDialogErrorText.textContent = "Cannot enter a bid below 0";
+    } else if (bid < numBids) {
+        gameRoundDialogErrorText.textContent = "Cannot enter a bid below " +
+                numBids;
         gameRoundDialogButtonEl.disabled = true;
     } else if (bid > 13) {
         gameRoundDialogErrorText.textContent = "Cannot enter a bid above 13";
@@ -190,4 +224,6 @@ function validateBidEntry(entry) {
         gameRoundDialogErrorText.textContent = "";
         gameRoundDialogButtonEl.disabled = false;
     }
+
+    return !gameRoundDialogButtonEl.disabled;
 }

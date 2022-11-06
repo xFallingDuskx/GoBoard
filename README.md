@@ -15,9 +15,8 @@ A scoreboard to keep track of the spades card game games.
     - [x] How many points until end game (winning score)
     - [x] Prevent user from continuing on without entering all info
 - [ ] Track team scores and bags in a table
-- [ ] Teams can select their bid prior to each round: # of books, nil bid, or blind nil
-    - [ ] Set minimum (1) and maximum (13) bids for each team
-    - [ ] Prevent a total number of bids greater than 13
+- [x] Teams can select their bid prior to each round: # of books, nil bid, or blind nil
+    - [x] Set minimumand maximum (13) bids for each team
 - [ ] Users can enter the results of the round
 - [ ] Scoreboard updates automatically according to round results
 - [ ] Winning team is displayed somewhere on-screen

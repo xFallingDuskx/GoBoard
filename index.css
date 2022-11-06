@@ -43,7 +43,8 @@
         width: 60%;
     }
 
-    #game-round-dialog button {
+    #game-round-dialog button,
+    #game-round-dialog button:disabled {
         margin: calc(10px + 1.5625vw) auto;
     }
 
@@ -101,11 +102,12 @@
     }
 
     #game-round-dialog {
-        padding: calc(2px + 1.5625vw);
-        width: 30%;
+        padding: calc(1px + 1.5625vw);
+        width: 25%;
     }
 
-    #game-round-dialog button {
+    #game-round-dialog button,
+    #game-round-dialog button:disabled {
         margin: calc(1px + 0.8vw) auto;
     }
 
@@ -128,6 +130,30 @@
 }
 
 /* ANIMATIONS AND PROPERTIES (https://developer.mozilla.org/en-US/docs/Web/CSS/animation) */
+.shake {
+    animation-delay: 100ms;
+    animation-direction: normal;
+    animation-duration: 100ms;
+    animation-fill-mode: both;
+    animation-iteration-count: 6;
+    animation-timing-function: linear;
+    animation-name: shake;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(20%);
+    }
+
+    75% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .slide-left {
     animation-delay: 100ms;
     animation-direction: normal;
@@ -299,6 +325,63 @@ th {
     margin: 5px auto;
 }
 
+#game-round-dialog {
+    background: #9a805e;
+    border: 5px solid black;
+    border-radius: 25px;
+    color: whitesmoke;
+    display: none;
+    height: fit-content;
+    z-index: 4;
+}
+
+#game-round-dialog button {
+    background: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    color: black;
+    display: block;
+}
+
+#game-round-dialog button:active,
+#game-round-dialog button:hover {
+    background: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: whitesmoke;
+    transition-duration: 500ms;
+}
+
+#game-round-dialog button:disabled,
+#game-round-dialog button:disabled:active {
+    background: grey;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: whitesmoke;
+    transition-duration: 500ms;
+}
+
+#game-round-dialog button:disabled:hover {
+    cursor: not-allowed;
+}
+
+#game-round-dialog-background {
+    align-items: center;
+    background: rgb(128, 128, 128, 0.3);
+    display: none;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+}
+
+#game-round-dialog-error-text {
+    color: rgba(209, 0, 0, 0.886);
+}
+
 #game-screen {
     display: flex;
     flex-direction: column;
@@ -309,6 +392,14 @@ th {
 #scoreboard-container {
     align-self: center;
     display: none;
+    z-index: 2;
+}
+
+#start-input {
+    background: #9a805e;
+    flex: 19;
+    overflow-y: scroll;
+    padding: calc(4px + 1.5625vw);
 }
 
 #main-panel {
@@ -317,13 +408,6 @@ th {
     height: 100%;
     margin: 0;
     z-index: 1;
-}
-
-#start-input {
-    background: #9a805e;
-    flex: 19;
-    overflow-y: scroll;
-    padding: calc(4px + 1.5625vw);
 }
 
 #num-player-selection {
@@ -366,52 +450,6 @@ th {
     padding: 5px;
     margin: 5px auto;
     width: 50%;
-}
-
-#game-round-dialog {
-    align-self: center;
-    background: #9a805e;
-    border: 5px solid black;
-    border-radius: 25px;
-    color: whitesmoke;
-    display: none;
-    height: fit-content;
-    justify-self: center;
-    z-index: 4;
-}
-
-#game-round-dialog button {
-    background: whitesmoke;
-    border: 1px solid whitesmoke;
-    border-radius: 5px;
-    color: black;
-    display: block;
-}
-
-#game-round-dialog button:active,
-#game-round-dialog button:hover {
-    background: black;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: whitesmoke;
-    transition-duration: 500ms;
-}
-
-#game-round-dialog button:disabled,
-#game-round-dialog button:disabled:active {
-    background: grey;
-    border: 1px solid gray;
-    border-radius: 5px;
-    color: whitesmoke;
-    transition-duration: 500ms;
-}
-
-#game-round-dialog button:disabled:hover {
-    cursor: not-allowed;
-}
-
-#game-round-dialog-error-text {
-    color: rgba(209, 0, 0, 0.886);
 }
 
 #welcome-text {
